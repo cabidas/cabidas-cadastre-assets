@@ -13,8 +13,12 @@ version, manifest entry, image tag, and URL.
 3. Run `make verify-asset` and `make test-container`.
 4. Authenticate Docker to the chosen OCI registry through the operator's normal
    credential flow.
-5. Publish with `scripts/publish_image.sh ghcr.io/cabidas/cadastre-assets`.
-   The build targets the Coolify server's `linux/amd64` architecture and emits
+5. Create the immutable GitHub release `cadastre-<dataset-version>` and attach
+   exactly the archive named in `asset-manifest.json`. Publishing the release
+   triggers `.github/workflows/publish-image.yml`, which downloads and verifies
+   the asset before building. For an authorized local fallback, use
+   `scripts/publish_image.sh ghcr.io/cabidas/cabidas-cadastre-assets`.
+   Both paths target the Coolify server's `linux/amd64` architecture and emit
    OCI provenance plus an SBOM attestation.
 6. Resolve and record the resulting immutable image digest.
 7. Configure Coolify with the digest, not `latest`.

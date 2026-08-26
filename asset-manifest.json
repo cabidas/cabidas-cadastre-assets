@@ -1,6 +1,7 @@
 {
   "schema": "cabidas.cadastre_asset.v1",
   "dataset_version": "15b77a85753ceb06",
+  "provenance_manifest": "provenance/cadastre_tiles_manifest.v1.json",
   "archive": {
     "path": "dist/cadastre/cadastre-15b77a85753ceb06.pmtiles",
     "public_path": "/cadastre/cadastre-15b77a85753ceb06.pmtiles",

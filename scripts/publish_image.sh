@@ -3,7 +3,7 @@ set -eu
 
 if [ "$#" -ne 1 ]; then
   echo "usage: $0 REGISTRY_IMAGE" >&2
-  echo "example: $0 ghcr.io/cabidas/cadastre-assets" >&2
+  echo "example: $0 ghcr.io/cabidas/cabidas-cadastre-assets" >&2
   exit 2
 fi
 

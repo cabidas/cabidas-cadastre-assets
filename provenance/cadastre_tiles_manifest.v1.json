@@ -1,0 +1,78 @@
+{
+  "archive": {
+    "attribution": "Servicio de Impuestos Internos de Chile",
+    "bounds": [
+      -70.67065804213017,
+      -33.51871614251419,
+      -70.17587094522182,
+      -33.09642896628146
+    ],
+    "content_type": "application/vnd.pmtiles",
+    "filename": "cadastre-15b77a85753ceb06.pmtiles",
+    "format": "pmtiles",
+    "id_property": "feature_id",
+    "max_zoom": 18,
+    "min_zoom": 15,
+    "sha256": "9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d",
+    "size_bytes": 20502868,
+    "source_layer": "parcels",
+    "spec_version": 3,
+    "url": "https://assets.cabidas.app/cadastre/cadastre-15b77a85753ceb06.pmtiles"
+  },
+  "dataset_version": "15b77a85753ceb06",
+  "feature_count": 67706,
+  "generated_at": "2026-08-19T22:40:00Z",
+  "generator": "tippecanoe v2.79.0",
+  "publication_state": "staged",
+  "schema_version": "cadastre_tiles_manifest.v1",
+  "source_artifacts": [
+    {
+      "bounds": [
+        -70.60777901620281,
+        -33.486603222193985,
+        -70.42811660978325,
+        -33.36427378489477
+      ],
+      "commune_code": "15108",
+      "commune_name": "LAS CONDES",
+      "duplicate_geometry_count": 356856,
+      "filename": "Las_Condes_15108.parquet",
+      "invalid_geometry_count": 142,
+      "sha256": "2a45126331589123192a77bb4ade0813c7a6437e25dd2f7cd752d38a6b2ecb90",
+      "source_feature_count": 391782,
+      "tile_feature_count": 34784
+    },
+    {
+      "bounds": [
+        -70.60454427213129,
+        -33.49158935645582,
+        -70.17587094522182,
+        -33.09642896628146
+      ],
+      "commune_code": "15161",
+      "commune_name": "LO BARNECHEA",
+      "duplicate_geometry_count": 57335,
+      "filename": "Lo_Barnechea_15161.parquet",
+      "invalid_geometry_count": 23,
+      "sha256": "708bb0c57d1674d3d8cce65488276b016c2184d90aad5e522036a6962a822c38",
+      "source_feature_count": 75049,
+      "tile_feature_count": 17691
+    },
+    {
+      "bounds": [
+        -70.67065804213017,
+        -33.51871614251419,
+        -70.636819293203,
+        -33.47669944749559
+      ],
+      "commune_code": "16106",
+      "commune_name": "SAN MIGUEL",
+      "duplicate_geometry_count": 100533,
+      "filename": "San_Miguel_16106.parquet",
+      "invalid_geometry_count": 1312,
+      "sha256": "a6a79db30cdf44329136dd83a74de72a9e48bc62ec3fcb77cbf7207c44af9b1f",
+      "source_feature_count": 117076,
+      "tile_feature_count": 15231
+    }
+  ]
+}
