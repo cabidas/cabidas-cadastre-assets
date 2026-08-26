@@ -84,6 +84,16 @@ class RepositoryContractTest(unittest.TestCase):
         self.assertIn(f"DATASET_VERSION: {self.manifest['dataset_version']}", workflow)
         self.assertIn(Path(archive["path"]).name, workflow)
 
+    def test_published_image_is_digest_pinned(self) -> None:
+        image = self.manifest["image"]
+        self.assertEqual(image["name"], "ghcr.io/cabidas/cabidas-cadastre-assets")
+        for key in (
+            "index_digest",
+            "linux_amd64_manifest_digest",
+            "attestation_manifest_digest",
+        ):
+            self.assertRegex(image[key], r"^sha256:[0-9a-f]{64}$")
+
 
 if __name__ == "__main__":
     unittest.main()

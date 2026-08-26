@@ -15,5 +15,15 @@
       "https://cabidas.app",
       "https://www.cabidas.app"
     ]
+  },
+  "release": {
+    "tag": "cadastre-15b77a85753ceb06",
+    "url": "https://github.com/cabidas/cabidas-cadastre-assets/releases/tag/cadastre-15b77a85753ceb06"
+  },
+  "image": {
+    "name": "ghcr.io/cabidas/cabidas-cadastre-assets",
+    "index_digest": "sha256:04221de36f7fd4cfd5925dc550b9cb17f71cb388c6d8a734134b613fbe946d8b",
+    "linux_amd64_manifest_digest": "sha256:4251c0f0004362e3df302b987a4f130e1fd32ba829139f7207400fb09e58e17c",
+    "attestation_manifest_digest": "sha256:e43007fc7cb91dbfb87ba58e5bdc1c97878090bc92d22bfea7c38caea0c77f89"
   }
 }

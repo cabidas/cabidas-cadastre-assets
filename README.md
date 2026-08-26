@@ -37,4 +37,5 @@ The end-to-end check validates health, full-file SHA-256, PMTiles v3 magic,
 allowed-origin CORS, preflight behavior, and rejection of an untrusted origin.
 
 See [docs/OPERATIONS.md](docs/OPERATIONS.md) for release, deployment, rollback,
-and onboarding procedures.
+and onboarding procedures. Current release and isolated-candidate verification
+are recorded in [docs/DEPLOYMENT_EVIDENCE.md](docs/DEPLOYMENT_EVIDENCE.md).
