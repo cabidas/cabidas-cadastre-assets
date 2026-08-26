@@ -31,6 +31,13 @@ manager. They must never be committed, printed, or entered as Docker build args.
 Create a separate Docker-image resource and expose container port `8080`.
 `compose.example.yaml` is the reviewed runtime-policy reference; if the Coolify
 UI is used directly, its settings must remain equivalent.
+
+Before creating or changing a production resource, confirm that the Coolify
+control plane is on a currently supported, security-patched release and that a
+verified database/configuration rollback bundle exists. Record the control-plane
+version, immutable image digest, backup location, and post-change health checks
+in `docs/DEPLOYMENT_EVIDENCE.md`.
+
 Before attaching public DNS, apply:
 
 - read-only root filesystem;

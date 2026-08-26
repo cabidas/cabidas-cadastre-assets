@@ -51,11 +51,41 @@ magic, content type/length, byte ranges and `416`, ETag and conditional `304`,
 Last-Modified, immutable caching, allowed-origin CORS/preflight, and rejection
 of an untrusted origin. The temporary tunnel was closed after verification.
 
+## Coolify control-plane gate
+
+The pre-activation audit found that the installed Coolify image predated the
+fix for CVE-2026-34047. On 2026-08-26, the control plane was upgraded with the
+official version-pinned installer to `4.3.12` at image digest
+`sha256:7e9f90a25443cea2e2b33925a58db8763650dde38e3e820cddb0fb692e4b9bed`.
+
+Before the upgrade, a root-only rollback bundle was created on the host at
+`/data/coolify/backups/security-upgrade-20260826T223119Z`. It contains a
+restorable PostgreSQL custom-format dump, Coolify source/configuration and SSH
+key archives, container/image metadata, the installer and upgrade logs, and an
+offline compressed copy of the previous Coolify image. The database listing,
+archives, image gzip stream, permissions, and checksums were verified before
+the upgrade began.
+
+Post-upgrade verification passed:
+
+- the Coolify container is healthy on `4.3.12`, with zero restarts;
+- the upgrade log records successful completion and status-file cleanup;
+- PostgreSQL accepted connections and authenticated Redis returned `PONG`;
+- all 17 pre-existing containers remained running;
+- the Cabidas frontend, analysis route, and both backend health routes returned
+  HTTP `200` from outside the server;
+- the loopback-only cadastre candidate remained healthy and returned a correct
+  `206` PMTiles byte-range response;
+- no fatal, panic, exception, migration-failure, or error entries appeared in
+  the recent Coolify logs.
+
+Rollback was not required. The security gate is complete.
+
 ## Managed activation gate
 
-The candidate is intentionally not registered through the Coolify API and has
-no production route yet. A read-only control-plane audit found the installed
-Coolify image predates the fix for CVE-2026-34047. Coolify must be backed up,
-upgraded to a patched release, and verified before API access is enabled or a
-managed asset resource is created. Production DNS and the backend PMTiles
-catalog remain unchanged until that gate passes.
+The candidate is still intentionally loopback-only and is not registered as a
+Coolify-managed resource. The next gate is to create that managed resource from
+the immutable image digest, reproduce the reviewed runtime controls, and pass
+the complete delivery contract through a temporary Coolify hostname.
+Production DNS and the backend PMTiles catalog remain unchanged until that
+managed candidate passes and activation is approved separately.
