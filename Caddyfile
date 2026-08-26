@@ -1,0 +1,61 @@
+{
+	admin off
+	auto_https off
+	persist_config off
+	log {
+		output stdout
+		format json
+	}
+}
+
+:8080 {
+	log {
+		output stdout
+		format json
+	}
+
+	@asset path /cadastre/cadastre-15b77a85753ceb06.pmtiles
+	@allowed_asset {
+		path /cadastre/cadastre-15b77a85753ceb06.pmtiles
+		header_regexp asset_origin Origin ^https://(www\.)?cabidas\.app$
+	}
+	@preflight {
+		method OPTIONS
+		path /cadastre/cadastre-15b77a85753ceb06.pmtiles
+		header_regexp preflight_origin Origin ^https://(www\.)?cabidas\.app$
+	}
+
+	header @asset {
+		Cache-Control "public, max-age=31536000, immutable"
+		Content-Type "application/vnd.pmtiles"
+		Cross-Origin-Resource-Policy "cross-origin"
+		X-Content-Type-Options "nosniff"
+	}
+	header @allowed_asset {
+		Access-Control-Allow-Origin "{http.request.header.Origin}"
+		Access-Control-Expose-Headers "Accept-Ranges, Content-Length, Content-Range, Etag, Last-Modified"
+		Vary "Origin"
+	}
+
+	handle @preflight {
+		header {
+			Access-Control-Allow-Headers "Range"
+			Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+			Access-Control-Allow-Origin "{http.request.header.Origin}"
+			Access-Control-Max-Age "86400"
+			Vary "Origin"
+		}
+		respond "" 204
+	}
+
+	handle /healthz {
+		respond "ok" 200
+	}
+
+	handle @asset {
+		root * /srv
+		file_server
+	}
+
+	respond 404
+}

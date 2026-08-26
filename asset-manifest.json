@@ -1,0 +1,18 @@
+{
+  "schema": "cabidas.cadastre_asset.v1",
+  "dataset_version": "15b77a85753ceb06",
+  "archive": {
+    "path": "dist/cadastre/cadastre-15b77a85753ceb06.pmtiles",
+    "public_path": "/cadastre/cadastre-15b77a85753ceb06.pmtiles",
+    "media_type": "application/vnd.pmtiles",
+    "size_bytes": 20502868,
+    "sha256": "9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d"
+  },
+  "delivery": {
+    "cache_control": "public, max-age=31536000, immutable",
+    "allowed_origins": [
+      "https://cabidas.app",
+      "https://www.cabidas.app"
+    ]
+  }
+}
