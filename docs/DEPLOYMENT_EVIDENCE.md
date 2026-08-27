@@ -81,32 +81,32 @@ Post-upgrade verification passed:
 
 Rollback was not required. The security gate is complete.
 
-## Coolify-managed candidate
+## Coolify-managed production service
 
 On 2026-08-27, the candidate was replaced by a native Coolify Docker Compose
-service in the Cabidas production environment:
+service in the Cabidas production environment and activated at the public domain:
 
 - service UUID: `hdrwhn8qwrmz1sgj87em8pne`;
 - service name: `cabidas-cadastre-assets`;
 - container: `cadastre-assets-hdrwhn8qwrmz1sgj87em8pne`;
 - immutable image: the GHCR index digest recorded above;
-- public domain: none.
+- public domain: `https://assets.cabidas.app`.
 
 Docker inspection confirmed the managed container is running and healthy with
 zero restarts. It runs as `10001:10001`, has a read-only root filesystem, a
 16 MiB `noexec,nosuid` tmpfs, no Linux capabilities, no-new-privileges, a
 128-PID limit, one CPU, 256 MiB memory, a 32 MiB reservation, and bounded JSON
-logs. It has no host port binding and is reachable only through its private
-Coolify network until activation.
+logs. It has no host port binding; all public traffic reaches it through the
+Coolify-managed Traefik route.
 
-The complete delivery contract passed against the private service and then
+The complete delivery contract first passed against the private service and then
 through the temporary Coolify hostname
 `t8erss8cp8pmdzt0roxbv0dt.37.27.82.232.sslip.io`. The downloaded archive was
 `20,502,868` bytes and matched SHA-256
 `9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d`.
 Range requests, CORS, cache validators, cache policy, method restrictions, and
 error behavior also passed. The temporary hostname was removed afterward and
-an external request returned `404`, confirming that the candidate is private.
+an external request returned `404`, confirming route removal before production activation.
 The superseded manually started candidate container was removed after its lack
 of mounts and volumes was verified.
 
@@ -129,10 +129,26 @@ password to delete the row, so it is retained as an explicitly documented
 control-plane cleanup item rather than handling credentials outside the normal
 login flow.
 
-## Production activation gate
+## Production activation
 
-No `assets.cabidas.app` DNS record or Coolify domain is attached, and the
-backend/frontend PMTiles catalog remains unchanged. Those traffic-affecting
-changes require separate production activation approval. After approval,
-attach the final domain, create or verify DNS, rerun the complete delivery
-contract against the final HTTPS URL, and only then update consumers.
+Production activation completed on 2026-08-27 after explicit authorization:
+
+- Coolify attached `https://assets.cabidas.app` to service UUID
+  `hdrwhn8qwrmz1sgj87em8pne` and recreated the service successfully;
+- a scoped pre-change Coolify database backup was written to
+  `/data/coolify/backups/cadastre-assets-activation-20260827T1345Z`, and its custom-format dump
+  passed `pg_restore -l` validation;
+- all four authoritative Name.com servers resolve the `assets` A record to `37.27.82.232`;
+- Traefik issued and serves a valid Let's Encrypt certificate for `assets.cabidas.app`;
+- public health, `HEAD`, CORS, immutable cache, ETag, byte-range `206`, `Content-Range`, and
+  PMTiles v3 header checks passed;
+- a complete public download was `20,502,868` bytes and matched SHA-256
+  `9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d`;
+- backend commit `90e96d48e43a87e93726f3e5c9909637665c3092` activated the checked manifest and deployed
+  successfully through Coolify; and
+- the live `/api/v1/cadastre/catalog` reports `tiles_available`, the exact immutable asset URL,
+  digest, size, zoom contract, and coverage for Las Condes, Lo Barnechea, and San Miguel.
+
+The already-deployed frontend is catalog-driven and defaults to `auto`, so no frontend image change
+was required. Authenticated browser rendering and selection parity remain the final acceptance gate
+before the compatibility `/bbox` path can be considered for retirement.

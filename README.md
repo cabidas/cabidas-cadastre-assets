@@ -17,7 +17,7 @@ and a stable public URL.
 - The PMTiles binary is intentionally ignored by Git and is packaged only into
   the deployable OCI image.
 
-The initial public endpoint is intended to be:
+The active production endpoint is:
 
 ```text
 https://assets.cabidas.app/cadastre/cadastre-15b77a85753ceb06.pmtiles
@@ -37,5 +37,5 @@ The end-to-end check validates health, full-file SHA-256, PMTiles v3 magic,
 allowed-origin CORS, preflight behavior, and rejection of an untrusted origin.
 
 See [docs/OPERATIONS.md](docs/OPERATIONS.md) for release, deployment, rollback,
-and onboarding procedures. Current release and isolated-candidate verification
+and onboarding procedures. Current release, deployment, and production activation evidence
 are recorded in [docs/DEPLOYMENT_EVIDENCE.md](docs/DEPLOYMENT_EVIDENCE.md).

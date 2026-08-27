@@ -70,6 +70,13 @@ Only after this passes should `assets.cabidas.app` be attached and its DNS recor
 created. Run the same verification against the final URL before updating any
 frontend or backend manifest.
 
+After the public contract passes, activate the backend catalog before changing any frontend default.
+Verify that `/api/v1/cadastre/catalog` reports `tiles_available` with the exact URL, size, digest,
+source layer, zooms, and commune coverage. The frontend `auto` mode can then select PMTiles without a
+frontend redeploy. Complete browser acceptance by confirming `206` archive range requests, visible
+parcel boundaries, API-backed point selection, and no compatibility `/bbox` request during the
+normal tile path.
+
 After temporary-hostname validation, remove that hostname, redeploy the same
 service revision, and confirm the temporary URL no longer routes. Record the
 service UUID, image digest, runtime inspection, contract result, and route
@@ -85,6 +92,9 @@ remove an inert control-plane row.
 Because URLs and images are immutable, rollback is a configuration change:
 point the Coolify resource to the previously verified image digest and redeploy.
 Do not delete an archive that any released frontend or manifest may still use.
+For a delivery-only incident, first return the backend tile manifest to `staged` and deploy it; the
+catalog-driven frontend will fall back to `/bbox` without a frontend deployment. Retain the public
+archive and DNS route as immutable release evidence while the incident is investigated.
 
 ## Adding a commune or rebuilding data
 
