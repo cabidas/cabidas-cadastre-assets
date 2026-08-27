@@ -28,9 +28,19 @@ manager. They must never be committed, printed, or entered as Docker build args.
 
 ## Coolify candidate
 
-Create a separate Docker-image resource and expose container port `8080`.
-`compose.example.yaml` is the reviewed runtime-policy reference; if the Coolify
-UI is used directly, its settings must remain equivalent.
+Create a separate **Docker Compose service** from `compose.example.yaml` and set
+`CADASTRE_ASSETS_IMAGE` to the complete immutable
+`ghcr.io/...@sha256:<digest>` reference. Do not use a Coolify Docker Image
+application for this workload on Coolify `4.3.12`: its image fields can produce
+a duplicate digest reference, and its custom-option parser does not preserve
+the complete runtime policy. Re-evaluate this restriction only after a later
+Coolify release is tested end to end.
+
+Keep the container private during validation. The Compose service exposes port
+`8080` only to the private Coolify network; it must not publish a host port.
+Define the PID ceiling as `deploy.resources.limits.pids: 128`. Do not add a
+second, top-level `pids_limit` while deploy resource limits are present because
+the installed Compose version rejects distinct values.
 
 Before creating or changing a production resource, confirm that the Coolify
 control plane is on a currently supported, security-patched release and that a
@@ -45,9 +55,10 @@ Before attaching public DNS, apply:
 - all Linux capabilities dropped;
 - `no-new-privileges`;
 - one CPU and 256 MiB memory as initial ceilings;
+- a 128 PID ceiling and 32 MiB memory reservation;
 - restart policy `unless-stopped`;
 - health endpoint `/healthz`;
-- JSON logs with rotation at the platform level.
+- JSON logs rotated at 10 MiB with three files retained.
 
 First validate through Coolify's temporary hostname:
 
@@ -58,6 +69,16 @@ python3 scripts/verify_delivery.py https://<candidate-hostname>
 Only after this passes should `assets.cabidas.app` be attached and its DNS record
 created. Run the same verification against the final URL before updating any
 frontend or backend manifest.
+
+After temporary-hostname validation, remove that hostname, redeploy the same
+service revision, and confirm the temporary URL no longer routes. Record the
+service UUID, image digest, runtime inspection, contract result, and route
+removal in `docs/DEPLOYMENT_EVIDENCE.md`.
+
+If a failed trial resource has no domain, container, mount, or volume, it is
+safe to leave stopped until an administrator can delete it through Coolify's
+password-confirmed UI. Never share or automate an account password merely to
+remove an inert control-plane row.
 
 ## Rollback
 

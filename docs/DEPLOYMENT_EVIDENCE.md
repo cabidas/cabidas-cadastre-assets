@@ -1,6 +1,6 @@
 # Deployment evidence
 
-Last verified: 2026-08-26
+Last verified: 2026-08-27
 
 ## Public release
 
@@ -81,11 +81,58 @@ Post-upgrade verification passed:
 
 Rollback was not required. The security gate is complete.
 
-## Managed activation gate
+## Coolify-managed candidate
 
-The candidate is still intentionally loopback-only and is not registered as a
-Coolify-managed resource. The next gate is to create that managed resource from
-the immutable image digest, reproduce the reviewed runtime controls, and pass
-the complete delivery contract through a temporary Coolify hostname.
-Production DNS and the backend PMTiles catalog remain unchanged until that
-managed candidate passes and activation is approved separately.
+On 2026-08-27, the candidate was replaced by a native Coolify Docker Compose
+service in the Cabidas production environment:
+
+- service UUID: `hdrwhn8qwrmz1sgj87em8pne`;
+- service name: `cabidas-cadastre-assets`;
+- container: `cadastre-assets-hdrwhn8qwrmz1sgj87em8pne`;
+- immutable image: the GHCR index digest recorded above;
+- public domain: none.
+
+Docker inspection confirmed the managed container is running and healthy with
+zero restarts. It runs as `10001:10001`, has a read-only root filesystem, a
+16 MiB `noexec,nosuid` tmpfs, no Linux capabilities, no-new-privileges, a
+128-PID limit, one CPU, 256 MiB memory, a 32 MiB reservation, and bounded JSON
+logs. It has no host port binding and is reachable only through its private
+Coolify network until activation.
+
+The complete delivery contract passed against the private service and then
+through the temporary Coolify hostname
+`t8erss8cp8pmdzt0roxbv0dt.37.27.82.232.sslip.io`. The downloaded archive was
+`20,502,868` bytes and matched SHA-256
+`9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d`.
+Range requests, CORS, cache validators, cache policy, method restrictions, and
+error behavior also passed. The temporary hostname was removed afterward and
+an external request returned `404`, confirming that the candidate is private.
+The superseded manually started candidate container was removed after its lack
+of mounts and volumes was verified.
+
+Two Coolify `4.3.12` behaviors affected deployment:
+
+- the Docker Image resource UI produced an invalid duplicate digest reference
+  when given an `image@sha256:<digest>` value;
+- its custom-option parser truncated `no-new-privileges:true` and did not
+  reproduce the complete reviewed runtime policy.
+
+The native Docker Compose resource is therefore the supported deployment path.
+Compose also requires the PID ceiling under
+`deploy.resources.limits.pids`; specifying a distinct top-level `pids_limit`
+alongside deploy limits is rejected by the installed Compose version.
+
+A failed Docker Image trial remains as application UUID
+`erxop5mdeivlq2tywyurkuln`. It is stopped, has no FQDN, container, mount, or
+volume, and cannot affect traffic. Coolify requires an interactive account
+password to delete the row, so it is retained as an explicitly documented
+control-plane cleanup item rather than handling credentials outside the normal
+login flow.
+
+## Production activation gate
+
+No `assets.cabidas.app` DNS record or Coolify domain is attached, and the
+backend/frontend PMTiles catalog remains unchanged. Those traffic-affecting
+changes require separate production activation approval. After approval,
+attach the final domain, create or verify DNS, rerun the complete delivery
+contract against the final HTTPS URL, and only then update consumers.

@@ -1,6 +1,7 @@
 services:
   cadastre-assets:
     image: ${CADASTRE_ASSETS_IMAGE:?Set an immutable image reference including its sha256 digest}
+    user: "10001:10001"
     read_only: true
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m
@@ -17,10 +18,16 @@ services:
       retries: 3
       start_period: 5s
     restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     deploy:
       resources:
         limits:
           cpus: "1.0"
           memory: 256M
+          pids: 128
         reservations:
           memory: 32M

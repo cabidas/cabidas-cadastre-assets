@@ -59,10 +59,16 @@ class RepositoryContractTest(unittest.TestCase):
 
     def test_compose_runtime_is_hardened(self) -> None:
         compose = (ROOT / "compose.example.yaml").read_text(encoding="utf-8")
+        self.assertIn('user: "10001:10001"', compose)
         self.assertIn("read_only: true", compose)
         self.assertIn("no-new-privileges:true", compose)
         self.assertIn("cap_drop:", compose)
+        self.assertIn("pids: 128", compose)
+        self.assertNotIn("pids_limit:", compose)
         self.assertIn("memory: 256M", compose)
+        self.assertIn("memory: 32M", compose)
+        self.assertIn('max-size: "10m"', compose)
+        self.assertIn('max-file: "3"', compose)
 
     def test_workflow_actions_are_commit_pinned(self) -> None:
         for workflow_path in (ROOT / ".github" / "workflows").glob("*.yml"):
