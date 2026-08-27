@@ -149,6 +149,23 @@ Production activation completed on 2026-08-27 after explicit authorization:
 - the live `/api/v1/cadastre/catalog` reports `tiles_available`, the exact immutable asset URL,
   digest, size, zoom contract, and coverage for Las Condes, Lo Barnechea, and San Miguel.
 
-The already-deployed frontend is catalog-driven and defaults to `auto`, so no frontend image change
-was required. Authenticated browser rendering and selection parity remain the final acceptance gate
-before the compatibility `/bbox` path can be considered for retirement.
+The catalog-driven frontend required three production integration corrections after activation:
+
+- `e002a61` prevents binding before MapLibre source managers exist;
+- `a80575f` adds the exact asset origin to CSP `connect-src`; and
+- `925c537` retries idempotent handler binding on `styledata` instead of depending on global map
+  `idle`, which unrelated raster sources can postpone.
+
+Authenticated browser acceptance passed on 2026-08-27 against deployed frontend bundle `925c537`:
+
+- the live source type was `vector` with the exact immutable `pmtiles://` archive URL;
+- browser archive requests returned HTTP `206`, while no viewport `/cadastre/bbox` request occurred;
+- at zoom 17, rendered/source feature counts were Las Condes `346/668` (`15108`), Lo Barnechea
+  `155/697` (`15161`), and San Miguel `325/1209` (`16106`);
+- the expected `click`, `moveend`, and `sourcedata` handlers were present; and
+- a real pointer click in Lo Barnechea called `/api/v1/cadastre/parcel` with HTTP `200`, rendered the
+  authoritative selection geometry, and opened the parcel popup with address, area, and confirmation
+  action.
+
+The compatibility `/bbox` endpoint remains deployed as a controlled fallback. Its eventual removal
+requires a separate decision based on monitoring history and rollback policy.
