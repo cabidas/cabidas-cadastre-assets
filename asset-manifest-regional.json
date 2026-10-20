@@ -1,0 +1,41 @@
+{
+  "schema": "cabidas.cadastre_asset.v2",
+  "dataset_version": "gran_santiago_2026_s2_s6_release",
+  "provenance_manifest": "provenance/cadastre_tiles_manifest_regional.json",
+  "archives": [
+    {
+      "path": "dist/cadastre/cadastre-gran_santiago_regional.pmtiles",
+      "public_path": "/cadastre/cadastre-gran_santiago_regional.pmtiles",
+      "media_type": "application/vnd.pmtiles",
+      "size_bytes": 4526560,
+      "sha256": "484aa56314ee104036c87747a6e75509a5e0746ee381e6dc0124f6c9bc0b10fc",
+      "source_layer": "parcels",
+      "min_zoom": 15,
+      "max_zoom": 18
+    },
+    {
+      "path": "dist/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
+      "public_path": "/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
+      "media_type": "application/vnd.pmtiles",
+      "size_bytes": 194732,
+      "sha256": "8eef92588d44b915a7be554b7dc2c142edcbb406e0ee62b7969fc65dab1c2e68",
+      "source_layer": "districts",
+      "min_zoom": 9,
+      "max_zoom": 15
+    }
+  ],
+  "delivery": {
+    "cache_control": "public, max-age=31536000, immutable",
+    "allowed_origins": [
+      "https://cabidas.app",
+      "https://www.cabidas.app"
+    ]
+  },
+  "coolify": {
+    "service_name": "cadastre-assets",
+    "container_port": 8080,
+    "health_path": "/healthz",
+    "memory_limit": "256M",
+    "cpu_limit": "1.0"
+  }
+}

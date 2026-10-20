@@ -25,7 +25,7 @@ RUN cp /tmp/caddy-source /usr/bin/caddy \
     && chown -R caddy-assets:caddy-assets /srv
 
 COPY --chown=caddy-assets:caddy-assets Caddyfile /etc/caddy/Caddyfile
-COPY --chown=caddy-assets:caddy-assets dist/cadastre/cadastre-15b77a85753ceb06.pmtiles /srv/cadastre/cadastre-15b77a85753ceb06.pmtiles
+COPY --chown=caddy-assets:caddy-assets dist/cadastre/*.pmtiles /srv/cadastre/
 
 USER 10001:10001
 EXPOSE 8080

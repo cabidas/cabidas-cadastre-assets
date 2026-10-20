@@ -1,0 +1,81 @@
+{
+  "schema_version": "cadastre_tiles_manifest.v1",
+  "publication_state": "active",
+  "dataset_version": "gran_santiago_2026_s2_s6_release",
+  "generated_at": "2026-10-20T01:14:40.310734+00:00",
+  "generator": "tippecanoe v2.79.0",
+  "feature_count": 6105,
+  "source_artifacts": [
+    {
+      "filename": "tables/13101/huella_fisica.parquet",
+      "sha256": "71ff8be9c8cd61bb634710f1d9a331daecd5826730c43c9bba80248017e66b83",
+      "commune_code": "13101",
+      "commune_name": "SANTIAGO",
+      "source_feature_count": 6093,
+      "tile_feature_count": 6093,
+      "invalid_geometry_count": 0,
+      "duplicate_geometry_count": 0,
+      "bounds": [
+        -70.66507637500759,
+        -33.45692878559663,
+        -70.63120007514952,
+        -33.43037807676523
+      ]
+    },
+    {
+      "filename": "tables/15103/huella_fisica.parquet",
+      "sha256": "c6efb68ed0422ae6d47673bdf50aa061dae5f7d178ca29220cee5032e72fb02c",
+      "commune_code": "15103",
+      "commune_name": "PROVIDENCIA",
+      "source_feature_count": 12,
+      "tile_feature_count": 12,
+      "invalid_geometry_count": 0,
+      "duplicate_geometry_count": 0,
+      "bounds": [
+        -70.61642646789551,
+        -33.43107647138847,
+        -70.60901015996933,
+        -33.426657687629714
+      ]
+    }
+  ],
+  "archive": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-gran_santiago_regional.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-gran_santiago_regional.pmtiles",
+    "sha256": "484aa56314ee104036c87747a6e75509a5e0746ee381e6dc0124f6c9bc0b10fc",
+    "size_bytes": 4526560,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "parcels",
+    "id_property": "feature_id",
+    "min_zoom": 15,
+    "max_zoom": 18,
+    "bounds": [
+      -70.66507637500759,
+      -33.45692878559663,
+      -70.60901015996933,
+      -33.426657687629714
+    ],
+    "attribution": "Servicio de Impuestos Internos de Chile"
+  },
+  "district_reference": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-gran_santiago_districts_ref.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
+    "sha256": "8eef92588d44b915a7be554b7dc2c142edcbb406e0ee62b7969fc65dab1c2e68",
+    "size_bytes": 194732,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "districts",
+    "min_zoom": 9,
+    "max_zoom": 15,
+    "bounds": [
+      -70.9,
+      -33.7,
+      -70.4,
+      -33.2
+    ],
+    "attribution": "Servicio de Impuestos Internos de Chile"
+  }
+}
