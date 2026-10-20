@@ -1,0 +1,42 @@
+{
+    admin off
+    auto_https off
+    persist_config off
+}
+
+:8080 {
+    @asset path /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
+    @allowed {
+        path /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
+        header_regexp local_origin Origin ^http://(localhost|127\.0\.0\.1):3000$
+    }
+    header @asset {
+        Content-Type application/vnd.pmtiles
+        Cache-Control "no-cache"
+        Cross-Origin-Resource-Policy cross-origin
+        X-Content-Type-Options nosniff
+    }
+    header @allowed {
+        Access-Control-Allow-Origin "{http.request.header.Origin}"
+        Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+        Access-Control-Allow-Headers Range
+        Access-Control-Expose-Headers "Accept-Ranges, Content-Length, Content-Range, Etag, Last-Modified"
+        Vary Origin
+    }
+    @preflight {
+        method OPTIONS
+        path /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
+        header_regexp preflight_origin Origin ^http://(localhost|127\.0\.0\.1):3000$
+    }
+    handle @preflight {
+        respond "" 204
+    }
+    handle /healthz {
+        respond "ok" 200
+    }
+    handle @asset {
+        root * /srv
+        file_server
+    }
+    respond 404
+}

@@ -7,8 +7,8 @@
       "path": "dist/cadastre/cadastre-gran_santiago_regional.pmtiles",
       "public_path": "/cadastre/cadastre-gran_santiago_regional.pmtiles",
       "media_type": "application/vnd.pmtiles",
-      "size_bytes": 4526560,
-      "sha256": "484aa56314ee104036c87747a6e75509a5e0746ee381e6dc0124f6c9bc0b10fc",
+      "size_bytes": 4535639,
+      "sha256": "7825a683ffe3540ac20aeb5266f730ee377bb1aec06a3f9726d686b39f708915",
       "source_layer": "parcels",
       "min_zoom": 15,
       "max_zoom": 18

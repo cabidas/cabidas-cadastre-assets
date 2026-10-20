@@ -2,9 +2,9 @@
   "schema_version": "cadastre_tiles_manifest.v1",
   "publication_state": "active",
   "dataset_version": "gran_santiago_2026_s2_s6_release",
-  "generated_at": "2026-10-20T01:14:40.310734+00:00",
+  "generated_at": "2026-10-20T16:44:05.546347+00:00",
   "generator": "tippecanoe v2.79.0",
-  "feature_count": 6105,
+  "feature_count": 6115,
   "source_artifacts": [
     {
       "filename": "tables/13101/huella_fisica.parquet",
@@ -14,7 +14,6 @@
       "source_feature_count": 6093,
       "tile_feature_count": 6093,
       "invalid_geometry_count": 0,
-      "duplicate_geometry_count": 0,
       "bounds": [
         -70.66507637500759,
         -33.45692878559663,
@@ -30,12 +29,41 @@
       "source_feature_count": 12,
       "tile_feature_count": 12,
       "invalid_geometry_count": 0,
-      "duplicate_geometry_count": 0,
       "bounds": [
         -70.61642646789551,
         -33.43107647138847,
         -70.60901015996933,
         -33.426657687629714
+      ]
+    },
+    {
+      "filename": "tables/15108/huella_fisica.parquet",
+      "sha256": "7f06f00352fa6363223e07e91d1e84c8123d44f6371f17141078527c780f5016",
+      "commune_code": "15108",
+      "commune_name": "LAS CONDES",
+      "source_feature_count": 5,
+      "tile_feature_count": 5,
+      "invalid_geometry_count": 0,
+      "bounds": [
+        -70.5616128444672,
+        -33.41188200531035,
+        -70.56003838777546,
+        -33.41077820569857
+      ]
+    },
+    {
+      "filename": "tables/15161/huella_fisica.parquet",
+      "sha256": "d74f53d64fa6a437ff73b9816f71a9fae03989a6888e0e241cc9052ab5b85165",
+      "commune_code": "15161",
+      "commune_name": "LO BARNECHEA",
+      "source_feature_count": 5,
+      "tile_feature_count": 5,
+      "invalid_geometry_count": 0,
+      "bounds": [
+        -70.51221460103997,
+        -33.352099926108714,
+        -70.51110684871682,
+        -33.35171456440534
       ]
     }
   ],
@@ -44,8 +72,8 @@
     "spec_version": 3,
     "filename": "cadastre-gran_santiago_regional.pmtiles",
     "url": "https://assets.cabidas.app/cadastre/cadastre-gran_santiago_regional.pmtiles",
-    "sha256": "484aa56314ee104036c87747a6e75509a5e0746ee381e6dc0124f6c9bc0b10fc",
-    "size_bytes": 4526560,
+    "sha256": "7825a683ffe3540ac20aeb5266f730ee377bb1aec06a3f9726d686b39f708915",
+    "size_bytes": 4535639,
     "content_type": "application/vnd.pmtiles",
     "source_layer": "parcels",
     "id_property": "feature_id",
@@ -54,8 +82,8 @@
     "bounds": [
       -70.66507637500759,
       -33.45692878559663,
-      -70.60901015996933,
-      -33.426657687629714
+      -70.51110684871682,
+      -33.35171456440534
     ],
     "attribution": "Servicio de Impuestos Internos de Chile"
   },
@@ -70,12 +98,6 @@
     "source_layer": "districts",
     "min_zoom": 9,
     "max_zoom": 15,
-    "bounds": [
-      -70.9,
-      -33.7,
-      -70.4,
-      -33.2
-    ],
     "attribution": "Servicio de Impuestos Internos de Chile"
   }
 }
