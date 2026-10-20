@@ -1,0 +1,62 @@
+name: Publish versioned catalog bundle
+on:
+  workflow_dispatch:
+    inputs:
+      dataset_version:
+        description: Version in asset-manifest-active.json
+        required: true
+        type: string
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+  attestations: write
+concurrency:
+  group: publish-catalog-${{ inputs.dataset_version }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      DATASET_VERSION: ${{ inputs.dataset_version }}
+      IMAGE_NAME: ghcr.io/cabidas/cabidas-cadastre-assets
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Download and verify release bundle
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          python3 -c 'import json,os; assert json.load(open("asset-manifest-active.json"))["dataset_version"] == os.environ["DATASET_VERSION"]'
+          gh release download "catalog-$DATASET_VERSION" --pattern "cadastre-delivery-$DATASET_VERSION.tar.gz" --dir /tmp
+          tar -xzf "/tmp/cadastre-delivery-$DATASET_VERSION.tar.gz"
+          python3 scripts/verify_catalog_bundle.py
+          echo "ARCHIVE_SHA256=$(python3 -c 'import json; print(json.load(open("asset-manifest-active.json"))["archive"]["sha256"])')" >> "$GITHUB_ENV"
+      - uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+      - uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - uses: docker/build-push-action@10e90e3645eae34f1e60eeb005ba3a3d33f178e8 # v6
+        id: image
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ env.IMAGE_NAME }}:${{ env.DATASET_VERSION }}
+          build-args: |
+            BUILD_REVISION=${{ github.sha }}
+            DATASET_VERSION=${{ env.DATASET_VERSION }}
+            ARCHIVE_SHA256=${{ env.ARCHIVE_SHA256 }}
+          provenance: mode=max
+          sbom: true
+      - uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3
+        with:
+          subject-name: ${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.image.outputs.digest }}
+          push-to-registry: true
+      - name: Record immutable image
+        env:
+          IMAGE_DIGEST: ${{ steps.image.outputs.digest }}
+        run: echo "$IMAGE_NAME@$IMAGE_DIGEST" >> "$GITHUB_STEP_SUMMARY"

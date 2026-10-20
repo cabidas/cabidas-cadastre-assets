@@ -1,0 +1,123 @@
+{
+  "schema_version": "cadastre_tiles_manifest.v1",
+  "publication_state": "active",
+  "dataset_version": "3e3db8a2334705c0",
+  "generated_at": "2026-10-20T19:24:52.227045+00:00",
+  "generator": "tippecanoe v2.79.0",
+  "feature_count": 73811,
+  "source_artifacts": [
+    {
+      "filename": "Las_Condes_15108.parquet",
+      "sha256": "2a45126331589123192a77bb4ade0813c7a6437e25dd2f7cd752d38a6b2ecb90",
+      "commune_code": "15108",
+      "commune_name": "LAS CONDES",
+      "source_feature_count": 391782,
+      "tile_feature_count": 34784,
+      "invalid_geometry_count": 142,
+      "duplicate_geometry_count": 356856,
+      "bounds": [
+        -70.60777901620281,
+        -33.486603222193985,
+        -70.42811660978325,
+        -33.36427378489477
+      ]
+    },
+    {
+      "filename": "Lo_Barnechea_15161.parquet",
+      "sha256": "708bb0c57d1674d3d8cce65488276b016c2184d90aad5e522036a6962a822c38",
+      "commune_code": "15161",
+      "commune_name": "LO BARNECHEA",
+      "source_feature_count": 75049,
+      "tile_feature_count": 17691,
+      "invalid_geometry_count": 23,
+      "duplicate_geometry_count": 57335,
+      "bounds": [
+        -70.60454427213129,
+        -33.49158935645582,
+        -70.17587094522182,
+        -33.09642896628146
+      ]
+    },
+    {
+      "filename": "Regional_13101.parquet",
+      "sha256": "a680e1e6620192d1f81c72f1fe5d6e1fb8828a12955978496c79b6e51be1aa80",
+      "commune_code": "13101",
+      "commune_name": "SANTIAGO",
+      "source_feature_count": 270164,
+      "tile_feature_count": 6093,
+      "invalid_geometry_count": 0,
+      "duplicate_geometry_count": 264071,
+      "bounds": [
+        -70.66507637500759,
+        -33.45692878559663,
+        -70.63120007514952,
+        -33.43037807676523
+      ]
+    },
+    {
+      "filename": "Regional_15103.parquet",
+      "sha256": "fb3922f9e38cf74e38ffa7c9f9547b6d9915436130e8084a6f9e48a39f5eb217",
+      "commune_code": "15103",
+      "commune_name": "PROVIDENCIA",
+      "source_feature_count": 1264,
+      "tile_feature_count": 12,
+      "invalid_geometry_count": 0,
+      "duplicate_geometry_count": 1252,
+      "bounds": [
+        -70.61642646789551,
+        -33.43107647138847,
+        -70.60901015996933,
+        -33.426657687629714
+      ]
+    },
+    {
+      "filename": "San_Miguel_16106.parquet",
+      "sha256": "a6a79db30cdf44329136dd83a74de72a9e48bc62ec3fcb77cbf7207c44af9b1f",
+      "commune_code": "16106",
+      "commune_name": "SAN MIGUEL",
+      "source_feature_count": 117076,
+      "tile_feature_count": 15231,
+      "invalid_geometry_count": 1312,
+      "duplicate_geometry_count": 100533,
+      "bounds": [
+        -70.67065804213017,
+        -33.51871614251419,
+        -70.636819293203,
+        -33.47669944749559
+      ]
+    }
+  ],
+  "district_reference": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-districts-994ec572ad904e40.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-districts-994ec572ad904e40.pmtiles",
+    "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
+    "size_bytes": 1186581,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "districts",
+    "min_zoom": 9,
+    "max_zoom": 15,
+    "attribution": "IDE Chile · DPA comunal (snapshot local)"
+  },
+  "archive": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-3e3db8a2334705c0.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-3e3db8a2334705c0.pmtiles",
+    "sha256": "30664908d062dd5d26fbaa359827db24fea2e52c017c7c52b1d1507201b28ecf",
+    "size_bytes": 23225665,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "parcels",
+    "id_property": "feature_id",
+    "min_zoom": 15,
+    "max_zoom": 18,
+    "bounds": [
+      -70.67065804213017,
+      -33.51871614251419,
+      -70.17587094522182,
+      -33.09642896628146
+    ],
+    "attribution": "Servicio de Impuestos Internos de Chile"
+  }
+}

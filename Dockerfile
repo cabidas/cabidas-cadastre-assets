@@ -3,13 +3,15 @@ FROM caddy:2.11.4-alpine@sha256:5f5c8640aae01df9654968d946d8f1a56c497f1dd5c5cda4
 FROM alpine:3.22@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
 
 ARG BUILD_REVISION=local
+ARG DATASET_VERSION=15b77a85753ceb06
+ARG ARCHIVE_SHA256=9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d
 LABEL org.opencontainers.image.title="Cabidas Cadastre Assets" \
       org.opencontainers.image.description="Immutable PMTiles delivery service for Cabidas" \
       org.opencontainers.image.source="https://github.com/cabidas/cabidas-cadastre-assets" \
       org.opencontainers.image.revision="${BUILD_REVISION}" \
       org.opencontainers.image.licenses="Apache-2.0" \
-      io.cabidas.cadastre.dataset-version="15b77a85753ceb06" \
-      io.cabidas.cadastre.sha256="9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d"
+      io.cabidas.cadastre.dataset-version="${DATASET_VERSION}" \
+      io.cabidas.cadastre.sha256="${ARCHIVE_SHA256}"
 
 ENV XDG_CONFIG_HOME=/tmp/caddy-config \
     XDG_DATA_HOME=/tmp/caddy-data

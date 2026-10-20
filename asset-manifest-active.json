@@ -1,0 +1,99 @@
+{
+  "schema": "cabidas.cadastre_bundle.v1",
+  "dataset_version": "3e3db8a2334705c0",
+  "feature_count": 73811,
+  "archive": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-3e3db8a2334705c0.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-3e3db8a2334705c0.pmtiles",
+    "sha256": "30664908d062dd5d26fbaa359827db24fea2e52c017c7c52b1d1507201b28ecf",
+    "size_bytes": 23225665,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "parcels",
+    "id_property": "feature_id",
+    "min_zoom": 15,
+    "max_zoom": 18,
+    "bounds": [
+      -70.67065804213017,
+      -33.51871614251419,
+      -70.17587094522182,
+      -33.09642896628146
+    ],
+    "attribution": "Servicio de Impuestos Internos de Chile"
+  },
+  "district_reference": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-districts-994ec572ad904e40.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-districts-994ec572ad904e40.pmtiles",
+    "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
+    "size_bytes": 1186581,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "districts",
+    "min_zoom": 9,
+    "max_zoom": 15,
+    "attribution": "IDE Chile \u00b7 DPA comunal (snapshot local)"
+  },
+  "assets": [
+    {
+      "path": "dist/cadastre/cadastre-15b77a85753ceb06.pmtiles",
+      "public_path": "/cadastre/cadastre-15b77a85753ceb06.pmtiles",
+      "sha256": "9b57ca4511470c6509a5ce16d259871f29976bb7c364f132b7188cb10e45311d",
+      "size_bytes": 20502868
+    },
+    {
+      "path": "dist/cadastre/cadastre-3e3db8a2334705c0.pmtiles",
+      "public_path": "/cadastre/cadastre-3e3db8a2334705c0.pmtiles",
+      "sha256": "30664908d062dd5d26fbaa359827db24fea2e52c017c7c52b1d1507201b28ecf",
+      "size_bytes": 23225665
+    },
+    {
+      "path": "dist/cadastre/cadastre-districts-994ec572ad904e40.pmtiles",
+      "public_path": "/cadastre/cadastre-districts-994ec572ad904e40.pmtiles",
+      "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
+      "size_bytes": 1186581
+    },
+    {
+      "path": "dist/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
+      "public_path": "/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
+      "sha256": "8eef92588d44b915a7be554b7dc2c142edcbb406e0ee62b7969fc65dab1c2e68",
+      "size_bytes": 194732
+    },
+    {
+      "path": "dist/cadastre/cadastre-gran_santiago_regional.pmtiles",
+      "public_path": "/cadastre/cadastre-gran_santiago_regional.pmtiles",
+      "sha256": "484aa56314ee104036c87747a6e75509a5e0746ee381e6dc0124f6c9bc0b10fc",
+      "size_bytes": 4526560
+    }
+  ],
+  "coverage": [
+    {
+      "commune_code": "15108",
+      "commune_name": "LAS CONDES",
+      "tile_feature_count": 34784
+    },
+    {
+      "commune_code": "15161",
+      "commune_name": "LO BARNECHEA",
+      "tile_feature_count": 17691
+    },
+    {
+      "commune_code": "13101",
+      "commune_name": "SANTIAGO",
+      "tile_feature_count": 6093
+    },
+    {
+      "commune_code": "15103",
+      "commune_name": "PROVIDENCIA",
+      "tile_feature_count": 12
+    },
+    {
+      "commune_code": "16106",
+      "commune_name": "SAN MIGUEL",
+      "tile_feature_count": 15231
+    }
+  ],
+  "financial_use_approved": false,
+  "provenance_manifest": "provenance/cadastre_active_manifest.v1.json"
+}

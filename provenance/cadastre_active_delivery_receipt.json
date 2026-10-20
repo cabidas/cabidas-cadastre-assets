@@ -1,0 +1,105 @@
+{
+  "dataset_version": "3e3db8a2334705c0",
+  "feature_count": 73811,
+  "legacy_source_hashes_preserved": {
+    "Las_Condes_15108.parquet": "2a45126331589123192a77bb4ade0813c7a6437e25dd2f7cd752d38a6b2ecb90",
+    "Lo_Barnechea_15161.parquet": "708bb0c57d1674d3d8cce65488276b016c2184d90aad5e522036a6962a822c38",
+    "San_Miguel_16106.parquet": "a6a79db30cdf44329136dd83a74de72a9e48bc62ec3fcb77cbf7207c44af9b1f"
+  },
+  "new_partitions": [
+    {
+      "schema_version": "cadastre_map_delivery_provenance.v1",
+      "financial_use_approved": false,
+      "documentary_status": "original_dom_cip_unavailable",
+      "source_footprints_sha256": "71ff8be9c8cd61bb634710f1d9a331daecd5826730c43c9bba80248017e66b83",
+      "normalized_table_hashes": {
+        "calidad.parquet": "3e78a89afd0f25c1ffd27d0d108bb87dbc2d32c836f118365a67051ee5175d5e",
+        "enlace_huella_rol.parquet": "48e5b2bb6348c4668cdcd15f110d7bd3f09b299e188546ef08bde95b95b535d1",
+        "excepciones.parquet": "8a5b1b63ea678824dc046f6478da0ac5396531a13dfbdcc8bad96cefbb60b9f8",
+        "huella_fisica.parquet": "71ff8be9c8cd61bb634710f1d9a331daecd5826730c43c9bba80248017e66b83",
+        "observacion_identidad.parquet": "8f3af0c9037e24ad47d8ec9671d256226debcf2938e5cbfe435d336b1a347ca5",
+        "rol_fiscal.parquet": "1b5b3727bb69c94fa8aac57e32102de721e6b1a16604a77eb41ab390c74d4538"
+      },
+      "artifact_filename": "Regional_13101.parquet",
+      "artifact_sha256": "a680e1e6620192d1f81c72f1fe5d6e1fb8828a12955978496c79b6e51be1aa80",
+      "fiscal_rows": 270164,
+      "physical_footprints": 6093
+    },
+    {
+      "schema_version": "cadastre_map_delivery_provenance.v1",
+      "financial_use_approved": false,
+      "documentary_status": "original_dom_cip_unavailable",
+      "source_footprints_sha256": "c6efb68ed0422ae6d47673bdf50aa061dae5f7d178ca29220cee5032e72fb02c",
+      "normalized_table_hashes": {
+        "calidad.parquet": "a595069c49b2416cb9d8f17b3ecb6e99b771e8cf52dda5c1755bd80b104cad7e",
+        "enlace_huella_rol.parquet": "256cba3f9f18d2d9fc9d14ecbf07af070a937c439529134f3e7466c6cbe13f9a",
+        "excepciones.parquet": "9acef5692a4833dd2f0804d8d70dc0997a5bde399e777598db314e565013ec64",
+        "huella_fisica.parquet": "c6efb68ed0422ae6d47673bdf50aa061dae5f7d178ca29220cee5032e72fb02c",
+        "observacion_identidad.parquet": "3eca562f91b89d785319ae40bdbca703c22c94af731ab148add3aa4029f6b58a",
+        "rol_fiscal.parquet": "f4d68b48f3516dbcc15e41dac1b97f45ff0aeb38d7d4b5cbbb3d26f314ac3e36"
+      },
+      "artifact_filename": "Regional_15103.parquet",
+      "artifact_sha256": "fb3922f9e38cf74e38ffa7c9f9547b6d9915436130e8084a6f9e48a39f5eb217",
+      "fiscal_rows": 1264,
+      "physical_footprints": 12
+    }
+  ],
+  "files": {
+    "data/Las_Condes_15108.manifest.json": {
+      "sha256": "a2c15d85347df9fe673bdca3855685844b8c4b5b579ef2e49dca5a9fdd3387ab",
+      "size_bytes": 787
+    },
+    "data/Las_Condes_15108.parquet": {
+      "sha256": "2a45126331589123192a77bb4ade0813c7a6437e25dd2f7cd752d38a6b2ecb90",
+      "size_bytes": 19006411
+    },
+    "data/Lo_Barnechea_15161.manifest.json": {
+      "sha256": "89d55cc285d245147ae6d5f4bf14b72ca9c49ed0145a46c99039ee91c14ae947",
+      "size_bytes": 789
+    },
+    "data/Lo_Barnechea_15161.parquet": {
+      "sha256": "708bb0c57d1674d3d8cce65488276b016c2184d90aad5e522036a6962a822c38",
+      "size_bytes": 19230095
+    },
+    "data/Regional_13101.parquet": {
+      "sha256": "a680e1e6620192d1f81c72f1fe5d6e1fb8828a12955978496c79b6e51be1aa80",
+      "size_bytes": 197808016
+    },
+    "data/Regional_13101.provenance.json": {
+      "sha256": "43c9499962c2dc0c2d20368963c3e19ed6a39881b7fd9a590497c076a430812b",
+      "size_bytes": 1063
+    },
+    "data/Regional_15103.parquet": {
+      "sha256": "fb3922f9e38cf74e38ffa7c9f9547b6d9915436130e8084a6f9e48a39f5eb217",
+      "size_bytes": 318362
+    },
+    "data/Regional_15103.provenance.json": {
+      "sha256": "f4f80e4896032c8f4f9c61cc637345e85dc5218be8aa01a1209b1b80ce609457",
+      "size_bytes": 1059
+    },
+    "data/San_Miguel_16106.manifest.json": {
+      "sha256": "223cd2a1b0dbd146b95d31175ff7c886a9e4ea077fdbf9e943a12b112bb08ba5",
+      "size_bytes": 787
+    },
+    "data/San_Miguel_16106.parquet": {
+      "sha256": "a6a79db30cdf44329136dd83a74de72a9e48bc62ec3fcb77cbf7207c44af9b1f",
+      "size_bytes": 6091177
+    },
+    "data/tiles/cadastre_tiles_manifest.v1.json": {
+      "sha256": "b83dc8505d22b04190657d817a5130603bfea06d6982c5c03ea993b8dcd207d7",
+      "size_bytes": 3932
+    },
+    "tiles/cadastre-3e3db8a2334705c0.pmtiles": {
+      "sha256": "30664908d062dd5d26fbaa359827db24fea2e52c017c7c52b1d1507201b28ecf",
+      "size_bytes": 23225665
+    },
+    "tiles/cadastre-districts-994ec572ad904e40.pmtiles": {
+      "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
+      "size_bytes": 1186581
+    },
+    "tiles/cadastre_tiles_manifest.v1.json": {
+      "sha256": "b83dc8505d22b04190657d817a5130603bfea06d6982c5c03ea993b8dcd207d7",
+      "size_bytes": 3932
+    }
+  }
+}

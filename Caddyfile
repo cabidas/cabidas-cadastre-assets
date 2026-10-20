@@ -14,14 +14,14 @@
 		format json
 	}
 
-	@asset path /cadastre/cadastre-15b77a85753ceb06.pmtiles /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
+	@asset path /cadastre/cadastre-3e3db8a2334705c0.pmtiles /cadastre/cadastre-districts-994ec572ad904e40.pmtiles /cadastre/cadastre-15b77a85753ceb06.pmtiles /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
 	@allowed_asset {
-		path /cadastre/cadastre-15b77a85753ceb06.pmtiles /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
+		path /cadastre/cadastre-3e3db8a2334705c0.pmtiles /cadastre/cadastre-districts-994ec572ad904e40.pmtiles /cadastre/cadastre-15b77a85753ceb06.pmtiles /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
 		header_regexp asset_origin Origin ^https://(www\.)?cabidas\.app$
 	}
 	@preflight {
 		method OPTIONS
-		path /cadastre/cadastre-15b77a85753ceb06.pmtiles /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
+		path /cadastre/cadastre-3e3db8a2334705c0.pmtiles /cadastre/cadastre-districts-994ec572ad904e40.pmtiles /cadastre/cadastre-15b77a85753ceb06.pmtiles /cadastre/cadastre-gran_santiago_regional.pmtiles /cadastre/cadastre-gran_santiago_districts_ref.pmtiles
 		header_regexp preflight_origin Origin ^https://(www\.)?cabidas\.app$
 	}
 
