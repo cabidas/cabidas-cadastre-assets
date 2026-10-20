@@ -1,0 +1,25 @@
+{
+  "schema_version": "cadastre_districts_ref_manifest.v1",
+  "boundary_source": {
+    "filename": "comunas.geojson",
+    "sha256": "6dcb51b657b33da157034a1fd0e6f52704e07268eecec0fa7c7d059e2f6e87e8",
+    "description": "DPA commune snapshot acquired by scripts/download_dpa.py"
+  },
+  "dataset_version": "gran_santiago_2026_s2_s6_release",
+  "generated_at": "2026-10-20T19:00:37.570467+00:00",
+  "generator": "tippecanoe v2.79.0",
+  "feature_count": 44,
+  "archive": {
+    "format": "pmtiles",
+    "spec_version": 3,
+    "filename": "cadastre-gran_santiago_districts_ref.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
+    "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
+    "size_bytes": 1186581,
+    "content_type": "application/vnd.pmtiles",
+    "source_layer": "districts",
+    "min_zoom": 9,
+    "max_zoom": 15,
+    "attribution": "IDE Chile \u00b7 DPA comunal (snapshot local)"
+  }
+}

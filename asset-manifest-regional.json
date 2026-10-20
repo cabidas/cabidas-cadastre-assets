@@ -17,8 +17,8 @@
       "path": "dist/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
       "public_path": "/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
       "media_type": "application/vnd.pmtiles",
-      "size_bytes": 194732,
-      "sha256": "8eef92588d44b915a7be554b7dc2c142edcbb406e0ee62b7969fc65dab1c2e68",
+      "size_bytes": 1186581,
+      "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
       "source_layer": "districts",
       "min_zoom": 9,
       "max_zoom": 15

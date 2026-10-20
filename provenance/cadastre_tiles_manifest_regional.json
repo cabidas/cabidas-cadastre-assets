@@ -92,12 +92,12 @@
     "spec_version": 3,
     "filename": "cadastre-gran_santiago_districts_ref.pmtiles",
     "url": "https://assets.cabidas.app/cadastre/cadastre-gran_santiago_districts_ref.pmtiles",
-    "sha256": "8eef92588d44b915a7be554b7dc2c142edcbb406e0ee62b7969fc65dab1c2e68",
-    "size_bytes": 194732,
+    "sha256": "994ec572ad904e409535e28a6b4719cfd5420a1611ffed87996005ec5b5d9024",
+    "size_bytes": 1186581,
     "content_type": "application/vnd.pmtiles",
     "source_layer": "districts",
     "min_zoom": 9,
     "max_zoom": 15,
-    "attribution": "Servicio de Impuestos Internos de Chile"
+    "attribution": "IDE Chile \u00b7 DPA comunal (snapshot local)"
   }
 }
