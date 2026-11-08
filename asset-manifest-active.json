@@ -1,14 +1,14 @@
 {
   "schema": "cabidas.cadastre_bundle.v1",
-  "dataset_version": "3e3db8a2334705c0",
+  "dataset_version": "5e30befc03f615ee",
   "feature_count": 73811,
   "archive": {
     "format": "pmtiles",
     "spec_version": 3,
-    "filename": "cadastre-3e3db8a2334705c0.pmtiles",
-    "url": "https://assets.cabidas.app/cadastre/cadastre-3e3db8a2334705c0.pmtiles",
-    "sha256": "30664908d062dd5d26fbaa359827db24fea2e52c017c7c52b1d1507201b28ecf",
-    "size_bytes": 23225665,
+    "filename": "cadastre-5e30befc03f615ee.pmtiles",
+    "url": "https://assets.cabidas.app/cadastre/cadastre-5e30befc03f615ee.pmtiles",
+    "sha256": "92fcd479f1fd29fd2927ebb86b336ab067313c338c79e4b39ee4270971c12601",
+    "size_bytes": 23230449,
     "content_type": "application/vnd.pmtiles",
     "source_layer": "parcels",
     "id_property": "feature_id",
@@ -65,6 +65,12 @@
       "public_path": "/cadastre/cadastre-gran_santiago_regional.pmtiles",
       "sha256": "484aa56314ee104036c87747a6e75509a5e0746ee381e6dc0124f6c9bc0b10fc",
       "size_bytes": 4526560
+    },
+    {
+      "path": "dist/cadastre/cadastre-5e30befc03f615ee.pmtiles",
+      "public_path": "/cadastre/cadastre-5e30befc03f615ee.pmtiles",
+      "sha256": "92fcd479f1fd29fd2927ebb86b336ab067313c338c79e4b39ee4270971c12601",
+      "size_bytes": 23230449
     }
   ],
   "coverage": [
